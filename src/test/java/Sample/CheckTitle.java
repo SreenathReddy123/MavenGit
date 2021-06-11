@@ -1,5 +1,7 @@
 package Sample;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -22,9 +24,11 @@ public class CheckTitle {
 	@Test
 	public void checkTitle() {
 		driver.get("http://www.google.com");
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		String title = driver.getTitle();
 		System.out.println("The title is "+title);
 		Assert.assertEquals(title, "Google");
 	}
 
+	
 }
